@@ -1,8 +1,10 @@
 import React, { use } from 'react'
 import {useForm} from 'react-hook-form'
 import { createAccount ,login } from '../appwrite/auth'
+import {useNavigate} from 'react-router-dom'
 const Signup = () => {
     console.log("Signup component loaded");
+    const navigate = useNavigate()
     const{register,handleSubmit} = useForm() 
     const submit = async (data) => {
 try {
@@ -10,6 +12,7 @@ try {
      if(session){
         login(data.email,data.password)
      }
+     navigate('/')
 } catch (error) {       
     console.error(error)
 }
@@ -22,7 +25,7 @@ try {
     <input type="text" label="username" {...register("username",{required:true})} />
      <input type="text" label="password" {...register("password",{required:true})}
     />
-    <button type='submit' > createAccount</button>
+    <button type='submit' className="w-full bg-blue" > createAccount</button>
     </form>
         
     </div>
