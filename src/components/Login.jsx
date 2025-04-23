@@ -1,16 +1,21 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import { useNavigate } from 'react-router-dom'
-import {useForm} from 'react-hook-form'
-import { createAccount ,login } from '../appwrite/auth'
+import {set, useForm} from 'react-hook-form'
+import { createAccount ,login,currentuser,logout } from '../appwrite/auth'
 const Login = () => {
+ 
   const navigate = useNavigate()
   const{register,handleSubmit} = useForm()
 const submitlogin = async(data)=>{
+ 
   const user = await login(data.email,data.password)
   if(user){
     navigate('/home')
+    console.log("Login successful",user);
 }
+
 }
+
   return (
     <div>
       <form action="" onSubmit={handleSubmit(submitlogin)}>
@@ -19,6 +24,7 @@ const submitlogin = async(data)=>{
     <input type="password" label="password" {...register("password",{required:true})} />
     <button type="submit" className="w-full"> log in </button>
       </form>
+  
     </div>
   )
 }

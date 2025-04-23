@@ -8,22 +8,43 @@ const client = new Client()
       console.log('Project ID:', import.meta.env.VITE_APPWRITE_PROJECT_ID);
 const account = new Account(client)
 
+
 const createAccount = async (email, password,name) => {
     try {
-        const response = await account.create(ID.unique(), email, password,name);
-        console.log(response);
+        const userId = ID.unique()
+        const response = await account.create(userId, email, password,name);
+     if(response) {
+        console.log("Account created successfully", response);
+         return login(email, password)
+     }
     } catch (error) {
+        console.error(error);
+        throw error;
+    
+    }
+}
+const logout = async () => {
+    const res = await account.deleteSession()
+    console.log(res);
+}
+const login = async (email, password) => {
+    try {
+        const response = await account.createEmailPasswordSession(email, password);   
+        console.log(response);
+        return response;        
+    }          catch (error) {
+        throw error;
         console.error(error);
     }
 }
 
-const login = async (email, password) => {
+const currentuser = async()=>{
     try {
-        const response = await account.createSession(email, password);   
-        console.log(response);
-        return response;        
-    }          catch (error) {
+        const user= await account.get()
+        console.log(user);
+        return user
+    } catch (error) {
         console.error(error);
     }
 }
- export  {createAccount,login}
+ export  {createAccount,login,currentuser,logout}
