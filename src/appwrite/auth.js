@@ -24,8 +24,13 @@ const createAccount = async (email, password,name) => {
     }
 }
 const logout = async () => {
-    const res = await account.deleteSession()
-    console.log(res);
+   try {
+     const res = await account.deleteSession('current')
+     console.log(res);
+   } catch (error) {
+        console.error(error);
+    
+   }
 }
 const login = async (email, password) => {
     try {
