@@ -11,8 +11,7 @@ import Logout from './components/Logout';
 import { Provider } from 'react-redux';
 import Protected from './protected';
 import store from './store/store';
-import {Theme} from "@radix-ui/themes"
-import "@radix-ui/themes/styles.css";
+
 import SearchBox from './components/SearchBox';
 // Defining the router
 const router = createBrowserRouter([
@@ -23,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "searchbox",
+        element: <SearchBox />,
       },
       {
         path: "/signup",
@@ -40,10 +43,7 @@ const router = createBrowserRouter([
             path: "home",
             element: <Home />,
           },
-          {
-            path: "searchbox",
-            element: <SearchBox />,
-          },
+          
         ],
       },
     ],
@@ -53,9 +53,9 @@ const router = createBrowserRouter([
 
 // Rendering the app
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Theme  accentColor="crimson" grayColor="sand" radius="large" scaling="95%"  appearance="dark">
+
   <Provider store={store}>
     <RouterProvider router={router} />
   </Provider>
-  </Theme>
+ 
 );
