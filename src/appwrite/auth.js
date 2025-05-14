@@ -46,7 +46,7 @@ const login = async (email, password) => {
 const currentuser = async()=>{
     try {
         const user= await account.get()
-        console.log(user);
+        console.log(user,"CURRENTUSER");
         return user
     } catch (error) {
         console.error(error);

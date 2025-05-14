@@ -1,27 +1,17 @@
 import React from 'react'
-import Signup from './components/Signup'
-import Login from './components/Login'
-import Logout from './components/Logout'
-import Layout from './components/Layout'
-import Home from './components/Home'
-import {  Routes, Route } from 'react-router-dom';
+
+import{ Outlet } from 'react-router-dom'
+import Header from './components/Header'
+import Footer from './components/Footer'
 const App = () => {
-  
-  console.log("App loaded");
   return (
-   
-    
-    <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/logout" element={<Logout />} />
-    </Routes>
- 
-  
-   
-          
-    
+     <div>
+      <Header/>
+      <div className='container mx-auto mt-4'>
+        <Outlet/>
+    </div>
+    <Footer/>
+    </div>
   )
 }
 
