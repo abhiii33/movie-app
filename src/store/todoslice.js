@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+const initialTodos = () => {
+  try {
+    const data = JSON.parse(localStorage.getItem("data"));
+    return Array.isArray(data) ? data : []; 
+  } catch {
+    return [];
+  }
+};
 const todoslice = createSlice({
     name:"todo",
     initialState:{
-        todos:[{
-          id:Date.now(),
-          isActive:false, 
-          title:'',
-          content:''
-        }]
+        todos:initialTodos()
     },
     reducers:{
         addTodo:(state,action)=>{
@@ -18,6 +21,7 @@ const todoslice = createSlice({
                 content:action.payload.content
             } 
             state.todos.push(newtodo)
+            localStorage.setItem("data",JSON.stringify(state.todos))
           console.log("state",state.todos);
         },
         deleteTodo:(state)=>{

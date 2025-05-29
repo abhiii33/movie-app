@@ -13,16 +13,19 @@ const Header = () => {
         <ul className='flex justify-between bg-gray-800 p-4 text-white'>
 
             <li>
-            <NavLink to="/home" className="text-blue-500">Home</NavLink>
+            <NavLink to="/home" className="text-3xl font-bold underline">Home</NavLink>
             </li>
             <li>
-            <NavLink to="/signup" className="text-blue-500">Signup</NavLink>        
+            <NavLink to="/signup" className="text-3xl font-bold underline">Signup</NavLink>        
             </li>
             <li>      
-            <NavLink to="/login" className="text-blue-500">Login</NavLink>
+            <NavLink to="/login" className="text-3xl font-bold underline">Login</NavLink>
             </li>
             <li>      
-            <NavLink to="/searchbox" className="text-blue-500">searchbox</NavLink>
+            <NavLink to="/searchbox" className="text-3xl font-bold underline">searchbox</NavLink>
+            </li>
+             <li>      
+            <NavLink to="/footer" className="text-3xl font-bold underline">fopter</NavLink>
             </li>
             {authstatus && 
            <Logout/>

@@ -36,6 +36,10 @@ const router = createBrowserRouter([
         element: <Logout />,
       },
       {
+        path: "/footer",
+        element: <Footer />,
+      },
+      {
         path: "/",
         element: <Protected />,  // This is the layout for protected routes
         children: [
