@@ -20,7 +20,7 @@ const Signup = () => {
             if(userData)
             {
               dispatch(Authlogin(userData))
-              navigate("/")
+              navigate("/home")
             }
 
           }

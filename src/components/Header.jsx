@@ -16,6 +16,9 @@ const Header = () => {
             <NavLink to="/home" className="text-blue-500">Home</NavLink>
             </li>
             <li>
+            <NavLink to="/product" className="text-blue-500">Product</NavLink>
+            </li>
+            <li>
             <NavLink to="/signup" className="text-blue-500">Signup</NavLink>        
             </li>
             <li>      
@@ -24,9 +27,12 @@ const Header = () => {
             <li>      
             <NavLink to="/searchbox" className="text-blue-500">searchbox</NavLink>
             </li>
-            {authstatus && 
+           <li>      
+            <NavLink to="/todo" className="text-blue-500">todo</NavLink>
+            </li>
+           
            <Logout/>
-            }
+            
         </ul>
 
       </nav>
