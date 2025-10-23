@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import test from "./src/router/test1route.js"
 import test2 from "./src/router/testrouter.js"
 import userRoute from "./src/router/userRoute.js"
+import videoRoute from "./src/router/videoRoute.js"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 import connect from "./src/db/connectDb.js"
@@ -20,7 +21,7 @@ app.use(express.json())
 app.use(cookieParser())
 // app.use("/api/v1/user",testR)
 app.use("/api/v1/user",userRoute)
-
+app.use("/api/v1/video", videoRoute)
 app.use("/api/v2",test)
 app.use("/api/v1/err",test2)
 
